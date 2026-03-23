@@ -1,0 +1,3 @@
+- [x] mantissa?
+- [x] arrows
+- [ ] 
