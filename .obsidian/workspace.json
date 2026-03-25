@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "B2.2 Data Structures.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "B2.2 Data Structures"
+              "title": "README"
             }
           },
           {
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "B2.2 Data Structures.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for B2.2 Data Structures"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -140,12 +140,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "B2.2 Data Structures.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from B2.2 Data Structures"
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "B2.2 Data Structures.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of B2.2 Data Structures"
+              "title": "Outline of README"
             }
           }
         ]
@@ -212,10 +212,11 @@
   },
   "active": "20eb2ae197c3b27e",
   "lastOpenFiles": [
+    "A1.4 Translation (HL only).md",
+    "B2.2 Data Structures.md",
+    "README.md",
     "A1.3 Operating Systems and Control Systems.md",
     "A1.2 Data Representation.md",
-    "B2.2 Data Structures.md",
-    "A1.4 Translation (HL only).md",
     "ib-compsci-guide-en-2025.pdf",
     "Screenshot 2026-03-25 at 19.44.25.png",
     "Screenshot 2026-03-25 at 19.01.55.png",
