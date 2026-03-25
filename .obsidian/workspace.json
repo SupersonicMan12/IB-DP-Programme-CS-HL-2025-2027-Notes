@@ -1,0 +1,232 @@
+{
+  "main": {
+    "id": "93641eac28b17ba7",
+    "type": "split",
+    "children": [
+      {
+        "id": "583905d4ca275aa9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4bfa6f1d681dce06",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "ib-compsci-guide-en-2025.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "ib-compsci-guide-en-2025"
+            }
+          },
+          {
+            "id": "20eb2ae197c3b27e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "B2.2 Data Structures.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "B2.2 Data Structures"
+            }
+          },
+          {
+            "id": "6ff9c29af4fbb302",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "A1.3 Operating Systems and Control Systems.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "A1.3 Operating Systems and Control Systems"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "77a7219d49580a2f",
+    "type": "split",
+    "children": [
+      {
+        "id": "e7b5ea3a21d2d3e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3500cfe571a36aca",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c25576f57089d26b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "542cd7efaf8158a8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0a1bd0485346aeb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "e35e4a0fd316328c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7df85e75f2c5826e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "B2.2 Data Structures.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for B2.2 Data Structures"
+            }
+          },
+          {
+            "id": "b24504613cd4270d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "B2.2 Data Structures.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from B2.2 Data Structures"
+            }
+          },
+          {
+            "id": "8600be0d6f851e15",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fb3771254d190a32",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "3d2cf7d2355dc6eb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "B2.2 Data Structures.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of B2.2 Data Structures"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "20eb2ae197c3b27e",
+  "lastOpenFiles": [
+    "A1.3 Operating Systems and Control Systems.md",
+    "A1.2 Data Representation.md",
+    "B2.2 Data Structures.md",
+    "A1.4 Translation (HL only).md",
+    "ib-compsci-guide-en-2025.pdf",
+    "Screenshot 2026-03-25 at 19.44.25.png",
+    "Screenshot 2026-03-25 at 19.01.55.png",
+    "Multitasking.md",
+    "Screenshot 2026-03-25 at 18.25.29.png",
+    "Screenshot 2026-03-25 at 18.20.33.png",
+    "B2.4 Programming Algorithms.md",
+    "How to Java?.md",
+    "Questions.md",
+    "B3.2 Multi-class OOP.md",
+    "B3.1 Single-class OOP.md",
+    "A1.1 Computer Hardware and CPU.md"
+  ]
+}
