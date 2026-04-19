@@ -11,12 +11,14 @@
             "id": "7fc4b4ed24586e54",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "ib-compsci-guide-en-2025.pdf"
+                "file": "A2.2 Network Architecture.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "ib-compsci-guide-en-2025"
+              "icon": "lucide-file",
+              "title": "A2.2 Network Architecture"
             }
           },
           {
@@ -25,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "A2.3 Data Transmissions.md",
+                "file": "A1.3 Operating Systems and Control Systems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "A2.3 Data Transmissions"
+              "title": "A1.3 Operating Systems and Control Systems"
             }
           },
           {
@@ -47,8 +49,7 @@
               "title": "A1.4 Translation (HL only)"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -80,7 +81,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "virtual memory",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -101,7 +102,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -210,17 +212,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "028bce1ccda47dc7",
+  "active": "7fc4b4ed24586e54",
   "lastOpenFiles": [
-    "A2.2 Network Architecture.md",
-    "A2.1 Network fundamentals.md",
-    "A1.1 Computer Hardware and CPU.md",
     "A1.3 Operating Systems and Control Systems.md",
-    "A1.4 Translation (HL only).md",
+    "A2.1 Network fundamentals.md",
     "ib-compsci-guide-en-2025.pdf",
-    "A1.2 Data Representation.md",
-    "AI Quizzing Sessions/ChatGPT A1.1+A1.3.md",
+    "A2.2 Network Architecture.md",
     "A2.3 Data Transmissions.md",
+    "A1.4 Translation (HL only).md",
+    "AI Quizzing Sessions/ChatGPT A1.1+A1.3.md",
+    "A1.1 Computer Hardware and CPU.md",
+    "A1.2 Data Representation.md",
     "AI Quizzing Sessions",
     "B2.2 Data Structures.md",
     "B3.1 Single-class OOP.md",
