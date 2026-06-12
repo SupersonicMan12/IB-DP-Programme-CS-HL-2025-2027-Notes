@@ -1,24 +1,20 @@
 {
   "main": {
-    "id": "93641eac28b17ba7",
+    "id": "58f4a2f61cdd1c79",
     "type": "split",
     "children": [
       {
-        "id": "a83b314ea13030fa",
+        "id": "89929eff4a9d0bc7",
         "type": "tabs",
         "children": [
           {
-            "id": "d5e3cb9c4a2c6aa8",
+            "id": "d1fa27033df7f4db",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "A3.1 Database Fundamentals.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "A3.1 Database Fundamentals"
+              "title": "New tab"
             }
           }
         ]
@@ -27,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "77a7219d49580a2f",
+    "id": "87b48f51cba3af4f",
     "type": "split",
     "children": [
       {
-        "id": "e7b5ea3a21d2d3e9",
+        "id": "87c05dc39c461239",
         "type": "tabs",
         "children": [
           {
-            "id": "3500cfe571a36aca",
+            "id": "0f3707e342b53d05",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +44,7 @@
             }
           },
           {
-            "id": "c25576f57089d26b",
+            "id": "eff6477dc647493c",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +61,7 @@
             }
           },
           {
-            "id": "542cd7efaf8158a8",
+            "id": "e183ec53c2f4a9c2",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -81,20 +77,19 @@
     "width": 300
   },
   "right": {
-    "id": "0a1bd0485346aeb8",
+    "id": "74eee5270d1e2ad6",
     "type": "split",
     "children": [
       {
-        "id": "e35e4a0fd316328c",
+        "id": "e36a857fd3236af4",
         "type": "tabs",
         "children": [
           {
-            "id": "7df85e75f2c5826e",
+            "id": "84cfdb51431304bd",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,25 +99,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "b24504613cd4270d",
+            "id": "76c2d441ecd8b5f2",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from README"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "8600be0d6f851e15",
+            "id": "6d92c5ecf6c0deff",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -137,7 +131,7 @@
             }
           },
           {
-            "id": "fb3771254d190a32",
+            "id": "bdcd2bb305434640",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -151,18 +145,17 @@
             }
           },
           {
-            "id": "3d2cf7d2355dc6eb",
+            "id": "44267726d304c7bf",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline"
             }
           }
         ]
@@ -183,49 +176,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "d5e3cb9c4a2c6aa8",
+  "active": "d1fa27033df7f4db",
   "lastOpenFiles": [
-    "A3.2 Database Design.md",
-    "A3.3 Database Programming (DP2).md",
-    "A3.1 Database Fundamentals.md",
-    "B3.1 Single-class OOP.md",
-    "B4.1 Abstract Data Types (HL only).md",
-    "B2.4 Programming Algorithms.md",
-    "B3.2 Multi-class OOP.md",
-    "2024 TZ2 HL Paper 1.md",
-    "Practice Sets/S2Midterm/S2 Midterm Mock 1 Markscheme.md",
-    "Practice Sets/S2Midterm/S2 Midterm Mock.md",
-    "Practice Sets/Screenshot 2026-04-18 at 13.55.42.png",
-    "Practice Sets/S2Midterm/Screenshot 2026-04-18 at 14.31.45.png",
-    "Practice Sets/S2Midterm/Screenshot 2026-04-18 at 14.11.43.png",
-    "Practice Sets/S2Midterm/Screenshot 2026-04-18 at 14.04.31.png",
-    "Practice Sets/S2Midterm/Screenshot 2026-04-18 at 14.03.41.png",
-    "Practice Sets/S2Midterm/Screenshot 2026-04-18 at 13.55.42.png",
-    "Practice Sets/S2Midterm/Screenshot 2026-04-18 at 13.55.33.png",
-    "Practice Sets/S2Midterm/Screenshot 2026-04-18 at 13.19.41.png",
-    "Practice Sets/S2Midterm/Screenshot 2026-04-18 at 13.07.13.png",
-    "Practice Sets/S2Midterm",
-    "Practice Sets/untitled folder",
-    "Practice Sets/Screenshot 2026-04-18 at 13.19.41.png",
-    "Practice Sets/S2 Midterm Mock 1 Markscheme.md",
-    "Practice Sets/S2 Midterm Mock.md",
-    "Practice Sets",
-    "Trashed Questions.md",
-    "Test Taking Advice.md",
-    "README.md",
-    "How to Java?.md",
-    "Figures",
-    "AI Quizzing Sessions/ChatGPT A1.1+A1.3.md",
-    "ib-compsci-guide-en-2025.pdf",
-    "A2.3 Data Transmissions.md",
-    "B2.2 Data Structures.md",
-    "A2.1 Network fundamentals.md",
-    "A2.2 Network Architecture.md",
-    "A1.3 Operating Systems and Control Systems.md",
-    "A1.4 Translation (HL only).md",
-    "A1.1 Computer Hardware and CPU.md",
-    "A1.2 Data Representation.md",
-    "AI Quizzing Sessions",
-    "S2 Midterm Mock 1 Markscheme.md"
+    "S2 Midterm Mock 1 Markscheme.md",
+    "S2 Midterm Mock.md"
   ]
 }
