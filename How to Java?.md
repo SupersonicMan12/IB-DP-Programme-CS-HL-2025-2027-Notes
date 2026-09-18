@@ -172,11 +172,8 @@ st.isEmpty();
 ```
 
 Uses:
-
 - Undo operations
-    
 - Reversing data
-    
 - Expression evaluation
     
 
@@ -195,13 +192,12 @@ q.peek();
 ```
 
 Uses:
-
 - Scheduling
-    
 - Buffering
-    
 - Breadth-first processing
     
+
+## Linked List
 
 ---
 ### USE ARRAY TO IMPLEMENT QUEUE + STACK!
