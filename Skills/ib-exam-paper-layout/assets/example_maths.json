@@ -1,0 +1,414 @@
+{
+  "meta": {
+    "subject": "Mathematics: analysis and approaches",
+    "level": "Standard level",
+    "paper": "Paper 1 (practice extract)",
+    "file_stem": "Maths AA SL P1 - Practice Extract",
+    "folder": "Maths AA SL P1 - Practice Extract",
+    "suggested_time": "25 minutes",
+    "show_max_mark": true,
+    "instructions": [
+      "Do not open this examination paper until instructed to do so.",
+      "You are not permitted access to any calculator for this paper.",
+      "Section A: answer all questions. Answers must be written on the lines provided.",
+      "Section B: answer all questions on separate paper.",
+      "Unless otherwise stated in the question, all numerical answers should be given exactly or correct to three significant figures.",
+      "The maximum mark for this examination paper is <b>[19 marks]</b>."
+    ],
+    "total_marks": 19,
+    "end_text": "End of examination paper"
+  },
+  "paper": [
+    {
+      "type": "section",
+      "title": "Section A",
+      "text": "Answer <b>all</b> questions. Full marks are not necessarily awarded for a correct answer with no working. Answers must be supported by working and/or explanations."
+    },
+    {
+      "type": "question",
+      "number": 1,
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Let $f(x) = 2x^2 - 8x + 3$."
+        },
+        {
+          "type": "parts",
+          "parts": [
+            {
+              "label": "a",
+              "text": "Find $f'(x)$.",
+              "marks": 2,
+              "lines": 3
+            },
+            {
+              "label": "b",
+              "text": "Hence find the coordinates of the vertex of the graph of $f$.",
+              "marks": 3,
+              "lines": 5
+            },
+            {
+              "label": "c",
+              "text": "Write down the equation of the axis of symmetry of the graph of $f$.",
+              "marks": 1,
+              "lines": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "number": 2,
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The first term of an arithmetic sequence is 7 and the fifth term is 19."
+        },
+        {
+          "type": "parts",
+          "parts": [
+            {
+              "label": "a",
+              "text": "Find the common difference, $d$.",
+              "marks": 2,
+              "lines": 3
+            },
+            {
+              "label": "b",
+              "text": "Find the sum of the first 20 terms of the sequence.",
+              "marks": 3,
+              "lines": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Section B",
+      "new_page": true,
+      "text": "Answer <b>all</b> questions on separate paper."
+    },
+    {
+      "type": "question",
+      "number": 3,
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Let $f(x) = x^3 - 3x$. The following diagram shows part of the graph of $y = f(x)$. The shaded region $R$ is enclosed by the graph of $f$ and the $x$-axis, between $x = 0$ and $x = \\sqrt3$."
+        },
+        {
+          "type": "image",
+          "path": "example_math_graph.png",
+          "width_cm": 9.5,
+          "caption": "<i>diagram not to scale</i>"
+        },
+        {
+          "type": "parts",
+          "parts": [
+            {
+              "label": "a",
+              "text": "Show that $f'(x) = 3x^2 - 3$.",
+              "marks": 1
+            },
+            {
+              "label": "b",
+              "text": "Find the $x$-coordinates of the points on the graph of $f$ where the tangent is horizontal.",
+              "marks": 3
+            },
+            {
+              "label": "c",
+              "subparts": [
+                {
+                  "label": "i",
+                  "text": "Find the value of",
+                  "marks": 3,
+                  "blocks": [
+                    {
+                      "type": "equation",
+                      "latex": "\\int_0^{\\sqrt{3}} \\left(x^3 - 3x\\right)\\,\\mathrm{d}x"
+                    }
+                  ]
+                },
+                {
+                  "label": "ii",
+                  "text": "Hence write down the area of $R$.",
+                  "marks": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "markscheme": {
+    "general": [
+      "Award marks using the annotations listed below. Marks may be awarded for correct work seen anywhere in the candidate's response.",
+      "Method marks (M) are awarded for an attempt to use a correct method; accuracy marks (A) normally depend on the preceding M mark.",
+      "Where an answer is given (AG), the candidate must show sufficient working to reach it; do not award marks for simply restating it.",
+      "Follow through (FT) marks may be awarded where an earlier error is carried forward correctly, unless the question becomes significantly simpler."
+    ],
+    "abbreviations": [
+      [
+        "<b>M</b>",
+        "Marks awarded for attempting to use a valid <b>Method</b>."
+      ],
+      [
+        "<b>A</b>",
+        "Marks awarded for an <b>Answer</b> or for <b>Accuracy</b>; often dependent on preceding M marks."
+      ],
+      [
+        "<b>R</b>",
+        "Marks awarded for clear <b>Reasoning</b>."
+      ],
+      [
+        "<b>AG</b>",
+        "<b>Answer given</b> in the question, so no marks are awarded for it."
+      ],
+      [
+        "<b>FT</b>",
+        "<b>Follow through</b> from an earlier error."
+      ],
+      [
+        "( )",
+        "Marks in brackets, for example (M1), may be <b>implied</b> by later correct work."
+      ]
+    ],
+    "questions": [
+      {
+        "number": 1,
+        "parts": [
+          {
+            "label": "(a)",
+            "marks": 2,
+            "blocks": [
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "$f'(x) = 4x - 8$",
+                    "marks": "A1A1"
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "Award <b>A1</b> for $4x$ and <b>A1</b> for $-8$."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(b)",
+            "marks": 3,
+            "blocks": [
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "setting their $f'(x) = 0$, i.e. $4x - 8 = 0$",
+                    "marks": "M1"
+                  },
+                  {
+                    "text": "$x = 2$",
+                    "marks": "A1"
+                  },
+                  {
+                    "text": "$f(2) = 8 - 16 + 3 = -5$, so the vertex is $(2, -5)$",
+                    "marks": "A1"
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "Accept use of $x = -b/(2a)$ or completing the square, $f(x) = 2(x - 2)^2 - 5$, for the <b>M1</b>."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(c)",
+            "marks": 1,
+            "blocks": [
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "$x = 2$",
+                    "marks": "A1"
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "Must be an equation. Do not accept “2” alone. <b>FT</b> from their $x$-coordinate in (b)."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "parts": [
+          {
+            "label": "(a)",
+            "marks": 2,
+            "blocks": [
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "$7 + 4d = 19$",
+                    "marks": "(M1)"
+                  },
+                  {
+                    "text": "$d = 3$",
+                    "marks": "A1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(b)",
+            "marks": 3,
+            "blocks": [
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "attempt to substitute into the sum formula, $S_{20} = \\frac{20}{2}(2 \\times 7 + 19 \\times 3)$",
+                    "marks": "M1A1"
+                  },
+                  {
+                    "text": "$S_{20} = 710$",
+                    "marks": "A1"
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "<b>FT</b> from their $d$ in (a). Accept $\\frac{20}{2}(7 + 64)$ for the <b>A1</b>."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "parts": [
+          {
+            "label": "(a)",
+            "marks": 1,
+            "blocks": [
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "$f'(x) = 3x^2 - 3$",
+                    "marks": "A1 AG"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(b)",
+            "marks": 3,
+            "blocks": [
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "$3x^2 - 3 = 0$",
+                    "marks": "M1"
+                  },
+                  {
+                    "text": "$x^2 = 1$",
+                    "marks": "(A1)"
+                  },
+                  {
+                    "text": "$x = 1$ or $x = -1$",
+                    "marks": "A1"
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "Award <b>A0</b> for the final mark if only one value is given."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(c) (i)",
+            "marks": 3,
+            "blocks": [
+              {
+                "type": "equation",
+                "latex": "\\left[\\frac{x^4}{4} - \\frac{3x^2}{2}\\right]_0^{\\sqrt{3}}",
+                "align": "left"
+              },
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "attempt to integrate (power of $x$ increased by one in at least one term)",
+                    "marks": "M1"
+                  },
+                  {
+                    "text": "correct antiderivative, $\\frac{x^4}{4} - \\frac{3x^2}{2}$",
+                    "marks": "A1"
+                  },
+                  {
+                    "text": "$\\frac{9}{4} - \\frac{9}{2} = -\\frac{9}{4}$",
+                    "marks": "A1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(c) (ii)",
+            "marks": 1,
+            "blocks": [
+              {
+                "type": "points",
+                "bullet": "",
+                "items": [
+                  {
+                    "text": "area $= \\frac{9}{4}$",
+                    "marks": "A1"
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "<b>FT</b> from the absolute value of their answer to (c)(i). Do not accept a negative area."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

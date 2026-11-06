@@ -1,0 +1,741 @@
+{
+  "meta": {
+    "subject": "Computer science",
+    "level": "Higher level",
+    "paper": "Paper 2 — Extended-response question (practice)",
+    "file_stem": "Computer Science HL P2 - Solar Farm Grid",
+    "folder": "Computer Science HL P2 - Solar Farm Grid",
+    "suggested_time": "40 minutes",
+    "code_language": "java",
+    "lead_line": "All code that forms part of your response must be written in Java.",
+    "instructions": [
+      "Do not open this examination paper until instructed to do so.",
+      "Answer all parts of the question.",
+      "All code that forms part of your response must be written in Java.",
+      "The maximum mark for this examination paper is <b>[25 marks]</b>."
+    ],
+    "total_marks": 25,
+    "cover_note": "This question is written to the style of the final, most demanding question on the IB Diploma Programme Computer Science HL paper 2 (first assessment 2027). It assesses syllabus content from B2.2 (2D arrays), B2.3 (selection, loops, modularization), B2.4.1 (Big O notation), B2.4.2 (binary search) and B3.1 (classes and methods).",
+    "markscheme_footer": "Markscheme — Computer science HL paper 2 (Question 6)"
+  },
+  "paper": [
+    {
+      "type": "question",
+      "number": 6,
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A solar farm has its panels arranged in a rectangular grid of $R$ rows and $C$ columns. At the end of each day, the energy produced by every panel is recorded in kilowatt-hours (kWh) as a whole number. These values are stored in a two-dimensional array, `output`, where `output[r][c]` holds the energy produced by the panel in row `r` and column `c`. Rows and columns are numbered from 0.\n\nThe values recorded on one day for a small farm with $R = 4$ and $C = 5$ are shown in Figure 1."
+        },
+        {
+          "type": "grid",
+          "caption": "<b>Figure 1</b>: The array `output` for a farm with 4 rows and 5 columns",
+          "col_title": "column",
+          "row_title": "row",
+          "col_headers": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "rows": [
+            [
+              "0",
+              3,
+              1,
+              4,
+              1,
+              5
+            ],
+            [
+              "1",
+              9,
+              2,
+              6,
+              5,
+              3
+            ],
+            [
+              "2",
+              5,
+              8,
+              9,
+              7,
+              9
+            ],
+            [
+              "3",
+              3,
+              2,
+              3,
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "The operator plans to connect a battery unit to a square block of $K \\times K$ neighbouring panels. A block is identified by the row and column of its top-left panel. For example, the $2 \\times 2$ block whose top-left panel is at row 0, column 3 contains the values 1, 5, 5 and 3, and has a total of 14."
+        },
+        {
+          "type": "parts",
+          "parts": [
+            {
+              "label": "a",
+              "subparts": [
+                {
+                  "label": "i",
+                  "text": "State the total of the $3 \\times 3$ block whose top-left panel is at row 1, column 1.",
+                  "marks": 1
+                },
+                {
+                  "label": "ii",
+                  "text": "State, in terms of $R$, $C$ and $K$, the number of different $K \\times K$ blocks in a farm with $R$ rows and $C$ columns.",
+                  "marks": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "The class `SolarFarm` is used to analyse the data."
+        },
+        {
+          "type": "code",
+          "code": "public class SolarFarm {\n    private int[][] output;  // energy (kWh) of each panel\n    private int rows;        // R, the number of rows\n    private int cols;        // C, the number of columns\n\n    public SolarFarm(int[][] output) {\n        this.output = output;\n        this.rows = output.length;\n        this.cols = output[0].length;\n    }\n\n    // methods for parts (b), (c), (e)(ii) and (f)(ii) are added here\n}"
+        },
+        {
+          "type": "pagebreak"
+        },
+        {
+          "type": "box",
+          "text": "In parts (b), (c), (e)(ii) and (f)(ii) you must <b>not</b> use any methods of the `Math`, `Arrays` or `Collections` classes, or Java streams. Each method you write is part of the `SolarFarm` class and may use the attributes `output`, `rows` and `cols`."
+        },
+        {
+          "type": "parts",
+          "parts": [
+            {
+              "label": "b",
+              "text": "Construct the method `blockTotal(top, left, k)` that returns the total energy produced by the `k` × `k` block whose top-left panel is at row `top`, column `left`. You may assume that the whole block lies inside the grid.",
+              "marks": 3
+            },
+            {
+              "label": "c",
+              "text": "Construct the method `bestBlock(k)` that finds the `k` × `k` block with the largest total. The method must output the row and column of the top-left panel of this block, and return its total. Your method should call `blockTotal`.\n\nIf two or more blocks share the largest total, the block that is found first, when the top-left positions are examined row by row from left to right, must be chosen.\n\nFor example, for the data in Figure 1, `bestBlock(2)` outputs row 2, column 3 and returns 28.",
+              "marks": 4
+            },
+            {
+              "label": "d",
+              "text": "The farm is expanded to a square grid of $N$ rows and $N$ columns. Justifying your answer, state the worst-case time complexity of `bestBlock`, in Big O notation, in terms of $N$ only.",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "type": "pagebreak"
+        },
+        {
+          "type": "text",
+          "text": "The full data set has up to 1000 rows and 1000 columns, so a faster approach is needed. An engineer proposes building a cumulative table, `cum`, with $R + 1$ rows and $C + 1$ columns, where:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "every value in row 0 and in column 0 of `cum` is 0",
+            "for $1 \\le i \\le R$ and $1 \\le j \\le C$, `cum[i][j]` holds the total of all panels in rows 0 to $i - 1$ <b>and</b> columns 0 to $j - 1$ of `output`."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "For example, `cum[2][2]` = 3 + 1 + 9 + 2 = 15."
+        },
+        {
+          "type": "grid",
+          "caption": "<b>Figure 2</b>: Incomplete table `cum` for the data in Figure 1",
+          "col_title": "j",
+          "row_title": "i",
+          "col_headers": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "rows": [
+            [
+              "0",
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              "1",
+              0,
+              3,
+              4,
+              8,
+              9,
+              14
+            ],
+            [
+              "2",
+              0,
+              12,
+              15,
+              "",
+              31,
+              39
+            ],
+            [
+              "3",
+              0,
+              17,
+              "",
+              47,
+              "",
+              77
+            ],
+            [
+              "4",
+              0,
+              20,
+              33,
+              55,
+              76,
+              ""
+            ]
+          ]
+        },
+        {
+          "type": "parts",
+          "parts": [
+            {
+              "label": "e",
+              "subparts": [
+                {
+                  "label": "i",
+                  "text": "Copy and complete the table `cum` shown in Figure 2.",
+                  "marks": 2
+                },
+                {
+                  "label": "ii",
+                  "text": "Construct the method `buildCumulative()` that creates and returns the table `cum` for the data stored in `output`. Your method must have a time complexity of $O(R \\times C)$.",
+                  "marks": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Battery units are available in many sizes. Given a value `target`, the method `smallestBlock(target)` must return the <b>smallest</b> value of $K$ for which at least one $K \\times K$ block has a total greater than or equal to `target`. If no such block exists, the method returns −1.\n\nFor example, for the data in Figure 1, `smallestBlock(50)` returns 3 and `smallestBlock(100)` returns −1."
+        },
+        {
+          "type": "parts",
+          "parts": [
+            {
+              "label": "f",
+              "subparts": [
+                {
+                  "label": "i",
+                  "text": "Explain why, if some $K \\times K$ block has a total of at least `target`, there must also be a $(K + 1) \\times (K + 1)$ block with a total of at least `target`, provided that $K + 1$ does not exceed $R$ or $C$.",
+                  "marks": 2
+                },
+                {
+                  "label": "ii",
+                  "text": "Using your answers to parts (e)(ii) and (f)(i), construct the method `smallestBlock(target)`. Your method must be more efficient than testing every possible value of $K$ in turn.",
+                  "marks": 6
+                },
+                {
+                  "label": "iii",
+                  "text": "State, in Big O notation, the time complexity of your method in part (f)(ii) for a farm with $N$ rows and $N$ columns.",
+                  "marks": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "markscheme": {
+    "general": [
+      "Each mark point is shown followed by <b>[1]</b>. A mark point is awarded once, wherever it appears in the candidate's answer.",
+      "The example answers are not the only acceptable solutions. Award marks for any correct algorithm that meets the requirements of the question, including the use of `while` loops in place of `for` loops, different variable names, or a different (but correct) order of statements.",
+      "Syntax: minor syntax errors that do not change the logic (for example a missing semicolon or bracket) are not penalized. Errors that alter execution, such as `=` used for `==`, cause the affected mark point to be lost. Penalize a repeated error of the same type only once.",
+      "Prohibited functions: where a candidate uses a prohibited function (methods of the `Math`, `Arrays` or `Collections` classes, or Java streams), do not award the mark point(s) that the prohibited function replaces."
+    ],
+    "summary": {
+      "title": "Summary of marks and syllabus coverage",
+      "header": [
+        "Part",
+        "Marks",
+        "Skill assessed",
+        "Syllabus"
+      ],
+      "rows": [
+        [
+          "(a)(i), (a)(ii)",
+          "2",
+          "Interpreting a 2D array; counting",
+          "B2.2.2"
+        ],
+        [
+          "(b)",
+          "3",
+          "Nested counted loops over a 2D array",
+          "B2.2.2, B2.3.3"
+        ],
+        [
+          "(c)",
+          "4",
+          "Modular code, selection, tie-breaking",
+          "B2.3.2, B2.3.4, B3.1.4"
+        ],
+        [
+          "(d)",
+          "2",
+          "Big O of a nested-loop algorithm",
+          "B2.4.1"
+        ],
+        [
+          "(e)(i)",
+          "2",
+          "Tracing a cumulative table",
+          "B2.1.4"
+        ],
+        [
+          "(e)(ii)",
+          "3",
+          "Constructing an $O(R \\times C)$ algorithm",
+          "B2.2.2, B2.4.1"
+        ],
+        [
+          "(f)(i)",
+          "2",
+          "Reasoning about monotonic behaviour",
+          "B1.1.2, B2.4.2"
+        ],
+        [
+          "(f)(ii)",
+          "6",
+          "Binary search on the answer with O(1) queries",
+          "B2.4.2, B2.3.3"
+        ],
+        [
+          "(f)(iii)",
+          "1",
+          "Big O of the improved algorithm",
+          "B2.4.1"
+        ],
+        [
+          "<b>Total</b>",
+          "<b>25</b>",
+          "",
+          ""
+        ]
+      ],
+      "col_fractions": [
+        0.16,
+        0.09,
+        0.47,
+        0.28
+      ]
+    },
+    "questions": [
+      {
+        "number": 6,
+        "parts": [
+          {
+            "label": "(a) (i)",
+            "marks": 1,
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "50;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "2 + 6 + 5 + 8 + 9 + 7 + 2 + 3 + 8 = 50."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(a) (ii)",
+            "marks": 1,
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "$(R - K + 1) \\times (C - K + 1)$;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "Accept any equivalent expression.",
+                  "Do not accept $(R - K) \\times (C - K)$ or $R \\times C$."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(b)",
+            "marks": 3,
+            "intro": "Award <b>[1]</b> for each of the following:",
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "nested loops visiting exactly the rows `top` to `top + k - 1` and the columns `left` to `left + k - 1`;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "a running total initialized to 0 <b>before</b> the loops, with `output[r][c]` added to it inside the inner loop;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "the total is returned <b>after</b> both loops have finished;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "code",
+                "code": "public int blockTotal(int top, int left, int k) {\n    int total = 0;\n    for (int r = top; r < top + k; r++) {\n        for (int c = left; c < left + k; c++) {\n            total = total + output[r][c];\n        }\n    }\n    return total;\n}"
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "An off-by-one error in the loop bounds (for example `r <= top + k`) loses the first mark only.",
+                  "A total initialized inside the outer loop loses the second mark."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(c)",
+            "marks": 4,
+            "intro": "Award <b>[1]</b> for each of the following:",
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "loops that consider every valid top-left position: `top` from 0 to `rows - k` and `left` from 0 to `cols - k`, both <b>inclusive</b>;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "`blockTotal(top, left, k)` called for each position;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "the largest total so far, and its row and column, are stored, with a suitable initial value, and updated only when a <b>strictly greater</b> total is found (so the first of equal totals is kept);",
+                    "marks": 1
+                  },
+                  {
+                    "text": "<b>after</b> the loops, the row and column are output and the largest total is returned;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "code",
+                "code": "public int bestBlock(int k) {\n    int bestTotal = -1;\n    int bestRow = 0;\n    int bestCol = 0;\n    for (int top = 0; top <= rows - k; top++) {\n        for (int left = 0; left <= cols - k; left++) {\n            int total = blockTotal(top, left, k);\n            if (total > bestTotal) {\n                bestTotal = total;\n                bestRow = top;\n                bestCol = left;\n            }\n        }\n    }\n    System.out.println(\"Row: \" + bestRow + \" Column: \" + bestCol);\n    return bestTotal;\n}"
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "Bounds such as `top < rows - k` miss the last row/column of positions: do not award the first mark.",
+                  "Using `>=` instead of `>` keeps the <b>last</b> of equal totals. For example, `bestBlock(1)` on Figure 1 would output row 2, column 4 instead of row 1, column 0: do not award the third mark.",
+                  "An initial best total of 0 is acceptable (all outputs are non-negative), provided the stored row and column are also initialized (for example to 0, 0). An initial value taken from the first block is also acceptable.",
+                  "Output produced inside the loops (more than once) loses the fourth mark."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(d)",
+            "marks": 2,
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "$O(N^4)$;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "there are $(N - K + 1)^2$ blocks and `blockTotal` performs $K^2$ additions for each block, giving $(N - K + 1)^2 \\times K^2$ operations; this is largest when $K \\approx N/2$, giving about $N^4/16$ operations;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "Accept, for the second mark, an argument that there are four nested loops (two over the block positions and two inside `blockTotal`), each of which can run up to (a multiple of) $N$ times.",
+                  "Award <b>[1 max]</b> for $O((N - K + 1)^2 K^2)$ that is not expressed in terms of $N$ only.",
+                  "Do not award either mark for $O(N^2)$ or $O(K^2)$."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(e) (i)",
+            "marks": 2,
+            "blocks": [
+              {
+                "type": "grid",
+                "col_headers": [
+                  "0",
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    "1",
+                    0,
+                    3,
+                    4,
+                    8,
+                    9,
+                    14
+                  ],
+                  [
+                    "2",
+                    0,
+                    12,
+                    15,
+                    25,
+                    31,
+                    39
+                  ],
+                  [
+                    "3",
+                    0,
+                    17,
+                    28,
+                    47,
+                    60,
+                    77
+                  ],
+                  [
+                    "4",
+                    0,
+                    20,
+                    33,
+                    55,
+                    76,
+                    97
+                  ]
+                ],
+                "bold_cells": [
+                  [
+                    2,
+                    3
+                  ],
+                  [
+                    3,
+                    2
+                  ],
+                  [
+                    3,
+                    4
+                  ],
+                  [
+                    4,
+                    5
+                  ]
+                ]
+              },
+              {
+                "type": "points",
+                "items": [
+                  "`cum[2][3]` = 25, `cum[3][2]` = 28, `cum[3][4]` = 60, `cum[4][5]` = 97;"
+                ]
+              },
+              {
+                "type": "text",
+                "text": "Award <b>[1]</b> for two or three correct values; award <b>[2]</b> for all four correct values."
+              }
+            ]
+          },
+          {
+            "label": "(e) (ii)",
+            "marks": 3,
+            "intro": "Award <b>[1]</b> for each of the following:",
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "a 2D array with `rows + 1` rows and `cols + 1` columns is created, in which row 0 and column 0 contain 0;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "nested loops for $i$ from 1 to `rows` and $j$ from 1 to `cols` (in increasing order), using `output[i - 1][j - 1]` for the matching panel;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "the correct calculation<br/>`cum[i][j] = output[i-1][j-1] + cum[i-1][j]`<br/>`            + cum[i][j-1] - cum[i-1][j-1]`<br/>(or an equivalent method), and `cum` is returned;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "code",
+                "code": "public int[][] buildCumulative() {\n    int[][] cum = new int[rows + 1][cols + 1];\n    for (int i = 1; i <= rows; i++) {\n        for (int j = 1; j <= cols; j++) {\n            cum[i][j] = output[i - 1][j - 1] + cum[i - 1][j]\n                      + cum[i][j - 1] - cum[i - 1][j - 1];\n        }\n    }\n    return cum;\n}"
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "A new `int` array is automatically filled with 0, so row 0 and column 0 need not be set explicitly.",
+                  "Accept the alternative “running row total” method: for each row $i$, set `rowTotal = 0`; for each $j$, add `output[i-1][j-1]` to `rowTotal` and set `cum[i][j] = cum[i-1][j] + rowTotal`.",
+                  "Forgetting to subtract `cum[i-1][j-1]` (counting the overlap twice) loses the third mark.",
+                  "If the method is correct but not $O(R \\times C)$ (for example, it totals every rectangle from scratch), award <b>[1 max]</b>."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(f) (i)",
+            "marks": 2,
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "because $K + 1 \\le R$ and $K + 1 \\le C$, the $K \\times K$ block can be extended by one adjacent row (above or below) and one adjacent column (left or right) that lie inside the grid, giving a $(K + 1) \\times (K + 1)$ block that contains the whole of the original block;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "all outputs are non-negative (no panel produces a negative amount), so adding the extra $2K + 1$ panels cannot decrease the total, which therefore remains at least `target`;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "The second mark requires an explicit reference to the values being non-negative / zero or more.",
+                  "Candidates may go on to state that, as $K$ increases, the answer changes from “no block reaches the target” to “some block reaches the target” only once, so a binary search on $K$ can be used. This is creditworthy but not required."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(f) (ii)",
+            "marks": 6,
+            "intro": "Award <b>[1]</b> for each of the following:",
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "the cumulative table is built <b>once</b>, by calling `buildCumulative()`, before (outside) the search loop;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "the search range is initialized to `low = 1` and `high` = the smaller of `rows` and `cols` (found without `Math.min`), and the result is initialized to −1;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "a binary search loop (for example `while (low <= high)`) with `mid = (low + high) / 2` (integer division) that always terminates;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "for the current `mid`, every valid top-left position is examined (`top` from 0 to `rows - mid`, `left` from 0 to `cols - mid`, inclusive);",
+                    "marks": 1
+                  },
+                  {
+                    "text": "each block total is found in constant time using the table:<br/>`cum[top+mid][left+mid] - cum[top][left+mid]`<br/>`  - cum[top+mid][left] + cum[top][left]`<br/>and compared with `target` using `>=`;",
+                    "marks": 1
+                  },
+                  {
+                    "text": "if a block is found, `mid` is recorded as the answer and `high = mid - 1`; otherwise `low = mid + 1`; the recorded answer (or −1) is returned after the loop;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "code",
+                "code": "public int smallestBlock(int target) {\n    int[][] cum = buildCumulative();\n    int low = 1;\n    int high = rows;\n    if (cols < high) {\n        high = cols;\n    }\n    int answer = -1;\n    while (low <= high) {\n        int mid = (low + high) / 2;\n        boolean found = false;\n        for (int top = 0; top <= rows - mid && !found; top++) {\n            for (int left = 0; left <= cols - mid && !found; left++) {\n                int total = cum[top + mid][left + mid]\n                          - cum[top][left + mid]\n                          - cum[top + mid][left]\n                          + cum[top][left];\n                if (total >= target) {\n                    found = true;\n                }\n            }\n        }\n        if (found) {\n            answer = mid;\n            high = mid - 1;\n        } else {\n            low = mid + 1;\n        }\n    }\n    return answer;\n}"
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "A correct solution that tests each value of $K$ in turn (linear search on $K$) does not meet the efficiency requirement: award <b>[4 max]</b>.",
+                  "Calling `blockTotal` instead of using the table: do not award the fifth mark (and do not award the first mark if `cum` is never used).",
+                  "Returning `mid` as soon as a block reaching `target` is found, without continuing to search smaller values of $K$, does not find the <b>smallest</b> $K$: do not award the sixth mark.",
+                  "Updates such as `low = mid` or `high = mid` with `while (low <= high)` can loop forever: do not award the third mark.",
+                  "Accept other correct forms of the binary search, for example `while (low < high)` with `high = mid` / `low = mid + 1`, followed by a final check that returns −1 if no block of size `low` reaches the target.",
+                  "Stopping the position loops as soon as one block is found (as in the example) is good practice but is not required.",
+                  "Test data (Figure 1): `target` = 9 gives 1; 10 gives 2; 28 gives 2; 29 gives 3; 50 gives 3; 54 gives 3; 55 gives 4; 77 gives 4; 78 gives −1."
+                ]
+              }
+            ]
+          },
+          {
+            "label": "(f) (iii)",
+            "marks": 1,
+            "blocks": [
+              {
+                "type": "points",
+                "items": [
+                  {
+                    "text": "$O(N^2 \\log N)$;",
+                    "marks": 1
+                  }
+                ]
+              },
+              {
+                "type": "notes",
+                "items": [
+                  "Building the table is $O(N^2)$; the binary search makes $O(\\log N)$ checks of $O(N^2)$ each.",
+                  "Accept $O(R \\times C \\times \\log(\\min(R, C)))$.",
+                  "Allow follow-through from the candidate's answer to (f)(ii): for example, $O(N^3)$ for a correct linear search on $K$ that uses the table."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "teacher_notes": [
+      "<b>Difficulty.</b> Parts (a)–(d) are routine IB paper 2 tasks. Parts (e) and (f) correspond to a Codeforces problem of roughly 1300–1500 rating: a 2D prefix-sum (cumulative) table with inclusion–exclusion, combined with a binary search on the answer that relies on a monotonicity argument. Only 2D arrays, loops, selection, methods and binary search are needed; no advanced data structures are required.",
+      "<b>Efficiency.</b> For a $1000 \\times 1000$ farm, `bestBlock` can need around $6 \\times 10^{10}$ additions for a single value of `k`; testing every $K$ with the table needs about $3 \\times 10^8$ operations; the binary search needs about $10^7$.",
+      "<b>Further checks.</b> `bestBlock(1)` outputs row 1, column 0 and returns 9 (three blocks tie on 9, this tests the tie rule); `bestBlock(3)` outputs row 1, column 2 and returns 54; `bestBlock(4)` outputs row 0, column 1 and returns 77.",
+      "The example answers were compiled and run, and tested against a brute-force solution on thousands of random grids."
+    ]
+  }
+}
