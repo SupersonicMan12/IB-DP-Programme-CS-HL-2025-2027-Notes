@@ -7,8 +7,7 @@
 - Supervised accuracy can be measured against known correct answers, unsupervised learning has no "standard answer"
 
 **Question 2** _(4 marks)_  
-A hospital wants to build a system that detects tumours in X-ray images. It has only a small set of labelled X-ray scans.  
-**Explain** why transfer learning would be a suitable approach in this situation.
+A hospital wants to build a system that detects tumours in X-ray images. It has only a small set of labelled X-ray scans.  **Explain** why transfer learning would be a suitable approach in this situation.
 
 What happens:
 - Reuses a model pre-trained on another task (1)
@@ -18,8 +17,7 @@ Why:
 - It therefore needs much less labeled data, decreasing training time and cost, while less likely overfitting (1)
 
 **Question 3** _(4 marks)_  
-A smartphone maker wants to add face-unlock to its phones.  
-**Compare and contrast** running the face-recognition model on an edge device (the phone) with running it on a cloud-based platform.
+A smartphone maker wants to add face-unlock to its phones. **Compare and contrast** running the face-recognition model on an edge device (the phone) with running it on a cloud-based platform.
 
 Disadvantages:
 - Edge works offline and doesn't depend on a server
@@ -169,9 +167,9 @@ e) One reason is that the real house prices may not be linear with respect to fl
 > **(d)** Outline the effect of choosing a very small value of $k$. **[2]**
 
 a) A leaf node denotes a conclusion, the final desired result
-b) medical diagnosis is a complicated task involving many cases and conditions that must be considered. A decision tree can systematize the decision-making, taking these cases into consideration
-c) k-NN is an unsupervised learning method that clusters data points without prelabeled data. It can cluster users of similar preferences together, suggesting that they are likely to prefer the same films. Then, recommendations for a user can be based on what users in their clusters like.
-d) an overly small value of $k$ assumes a smaller number of groups. The groups may be too broad, grouping records that are actually not similar with each other and becoming less effective.
+b) the doctor can follow the path from the root to the leaf and see exactly which symptoms led to the diagnosis. the doctor can check the decision, justify it to the patient and spot mistakes. This matters because medical decisions are high-stakes and doctors are accountable for them.
+c) Represent each user as a vector of their film ratings or viewing history. Use a distance or similarity measure to find the k users most similar to the target user. Recommend films those neighbors rated highly that the target user hasn't watched yet, e.g. by a majority vote or average rating.
+d) The recommendation depends on only one or a few neighbors. So it is **sensitive to noise and outliers**. One user with unusual taste can skew the result, which leads to **overfitting** and unstable recommendations.
 
 > [!IB Style Question] Question 13 — A4.3.3 Hyperparameter tuning and evaluation
 > A model is developed to screen patients for a rare cancer. When tested on 200 patients, the results were:
@@ -191,7 +189,11 @@ d) an overly small value of $k$ assumes a smaller number of groups. The groups m
 >
 > **(e)** The model achieves 99% accuracy on the training data but 70% on the test data. Explain what this suggests and how hyperparameter tuning could address it. **[3]**
 
-
+a) accuracy = (15+160)/200 = 0.875 = 87.5%
+b) recall = (TP)/(Actual positive) = 75%
+c) recall should be prioritized, because false negative is more costly: it would mean that the cancer patient remains unaware of the disease, leading to a later discovery. On the other hand, a false positive leads to anxiety and rechecks, which is an acceptable price compared to a false negative.
+d) parameters can be learned from the training data, hyperparameters is determined before the model runs manually and would determine the entire architecture
+e) Overfitting has occurred: it has adapted strongly to the training data set but fails to generalize. For example, the hyperparameter of depth can be set as too large, leading to overfitting of the model. One can reduce the hyperparameter and test different values to find the optimal value.
 
 > [!IB Style Question] Question 14 — A4.3.4 Clustering
 > A clothing retailer wants to segment its customers based on purchasing data, such as annual spending and number of visits per year.
@@ -204,6 +206,11 @@ d) an overly small value of $k$ assumes a smaller number of groups. The groups m
 >
 > **(d)** Describe how the retailer could use the resulting clusters. **[2]**
 
+a) clustering is unsupervised learning because it recognizes patterns that are not previously labeled or discovered
+b) k-means algorithm first chooses k different centroids among the records, then it groups each record with its closest point by some similarity measure. All groups calculate their new centroids, and that leads to another round of grouping. When the result converges, k desired groups are formed.
+c) k-means is highly dependent on the initial seed of k, sometimes that k is not known or hard to test for, requiring manual, human discretion.
+d)  a retailer can use clustering to understand the preferences of customers: each customer record is a vector of their preferences for different products, clustering identifies groups of customers with similar preferences. This similar preference can lead to better recommendations and hence better sales
+
 > [!IB Style Question] Question 15 — A4.3.5 Association rules
 > A police department analyses data from 200 neighbourhoods. 50 neighbourhoods report vandalism, 80 report theft, and 40 report both vandalism and theft.
 >
@@ -215,6 +222,11 @@ d) an overly small value of $k$ assumes a smaller number of groups. The groups m
 >
 > **(d)** Interpret the lift value in the context of this scenario, and outline how the police could use this result. **[3]**
 
+a) support = 40/200 = 0.2
+b) 40/50 = 0.8
+c) lift = 0.8/0.4 = 2.0
+d) The likelihood of there being theft when vandalism is given is 80%, while the likelihood of there being theft in general is 40%. This ratio is > 1, meaning that the vandalism and theft has positive association: knowing vandalism increases the chances of having theft twice. The police could use this positive association to send more police to areas with greater vandalism to prevent theft.
+
 > [!IB Style Question] Question 16 — A4.3.6 Reinforcement learning
 > A warehouse uses a robot that learns to pick and move packages using reinforcement learning (RL).
 >
@@ -223,6 +235,10 @@ d) an overly small value of $k$ assumes a smaller number of groups. The groups m
 > **(b)** Describe how the robot (agent) interacts with its environment to learn, referring to states, actions and rewards. **[4]**
 >
 > **(c)** Explain the exploration versus exploitation trade-off in the context of the robot. **[3]**
+
+a) policy is the decision-rules of the robot: it is a mapping from state to action
+b) the robot starts with a state, or situation of the environment and itself. According to its policy, it chooses an action to perform. The environment moves into a different state and gives a positive or negative reward, signaling the robot whether they did a good job. The robot updates its policy so that it is more likely to receive reward. This process is iterated repeatedly to maximize cumulative reward over time.
+c) For the robot, exploitation means always using the route it already knows works. Exploration means sometimes trying a different aisle that might turn out to be quicker. If it only exploits, it may never find the shortest route; if it only explores, it wastes time on slower routes. So it should balance between the two: explore more in the start and exploit more in the long run.
 
 > [!IB Style Question] Question 17 — A4.3.7 Genetic algorithms
 > A courier company uses a genetic algorithm to find the shortest route for a driver visiting 30 delivery locations (a travelling salesperson problem).
@@ -235,12 +251,37 @@ d) an overly small value of $k$ assumes a smaller number of groups. The groups m
 >
 > **(d)** Identify **two** possible termination conditions for the algorithm. **[2]**
 
+a) a single member of the population represents a possible route for the 30-location visit
+b) 
+- Fitness is based on the total distance of the route
+- Shorter routes are fitter, e.g. fitness = 1 / total distance
+c) 
+- crossover takes a segment of the route from one parent and fills the remaining locations in the order they appear in the second. The child inherits the good sections of route from both parents
+- mutation makes a small random change, e.g. swap the positions of two locations. This keep the population diverse and stops the algorithm from getting stuck in a **local optimal.**
+d) two of the following:
+- a maximum number of generations has been reached, or a time or computation limit has been reached
+- a fitness threshold has been reached: the solution is sufficiency good
+- there has been no improvement in the best fitness, the program is stuck
+
 > [!IB Style Question] Question 18 — A4.3.8 Artificial neural networks
 > **(a)** Draw a labelled diagram of a single perceptron, showing its inputs, weights, bias, activation function and output. **[4]**
 >
 > **(b)** Outline the role of the activation function in a neural network. **[2]**
 >
 > **(c)** Explain why a multi-layer perceptron (MLP) can model more complex patterns than a single perceptron. **[3]**
+
+a) ![[Screenshot 2026-11-05 at 14.50.38.png]]
+
+inputs are x1 and x2, weights are w1 and w2, bias is b, activation function converts the linear combination + bias into the perceptron's own output value.
+
+b) 
+- decides the neuron's output: it chooses to squash the output into a useful range and whether or how strongly it fires
+- introduces non-linearity: without it, multiple layers would simply be a linear combination overall
+
+c) ==marked as not-a-great-question==
+1. A single perceptron can only draw a linear decision boundary, it cannot solve problems that aren't linearly separable
+2. An MLP has hidden layers. Each neuron in the hidden layer learns a simple feature, later layers combine those features gradually into more complex ones
+3. Because each layer applies a non-linear activation, the network as a whole becomes a non-linear function. With enough layers, complex decisions can be made.
 
 > [!IB Style Question] Question 19 — A4.3.9 Convolutional neural networks
 > A farm uses a convolutional neural network (CNN) to identify diseased crops from photographs of leaves.
@@ -253,9 +294,15 @@ d) an overly small value of $k$ assumes a smaller number of groups. The groups m
 >
 > **(d)** Explain how a CNN learns a spatial hierarchy of features to classify the leaf images. **[3]**
 
+a) Pooling downsamples the feature maps, reducing their size and computation needed.
+b) Feature map is the resultant of scanning the kernel over different positions of an image: each entry in the resulting matrix is the by-term product sum of the kernel and the sub-matrix. This convolutional layer is then fed into further neural networks to do complex identification.
+c) stride is the amount of spacing between different sampling positions. larger stride leads to a smaller convolutional layer, saving memory and space. it can also lose resolution or information.
+d) it starts by identifying simpler features like vertical and horizontal edges and color; then goes to middle layers of textures, shapes e.g. spots, lesions, vein patterns; then goes to deep layers: whole patterns of disease on the leaf.
+
 > [!IB Style Question] Question 20 — A4.3.10 Model selection and comparison
 > A bank needs a model to decide whether to approve loan applications. It is considering a decision tree and a deep neural network.
 >
 > **(a)** Outline **one** reason different algorithms can produce different results on the same dataset. **[2]**
 >
 > **(b)** Discuss which model the bank should select, considering the nature of the problem and the desired outcomes. **[6]**
+
