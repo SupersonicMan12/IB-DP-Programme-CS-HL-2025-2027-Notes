@@ -1,13 +1,16 @@
 ## A4.1
 
-**Question 1** _(2 marks)_  
-**Identify** two differences between supervised learning and unsupervised learning.
+> [!IB Style Question] Question 1
+> Identify **two** differences between supervised learning and unsupervised learning. **[2]**
+
 - Supervised learning uses labeled data
 - Supervised learning predicts a known output label, while unsupervised learning finds hidden patterns or structure
 - Supervised accuracy can be measured against known correct answers, unsupervised learning has no "standard answer"
 
-**Question 2** _(4 marks)_  
-A hospital wants to build a system that detects tumours in X-ray images. It has only a small set of labelled X-ray scans.  **Explain** why transfer learning would be a suitable approach in this situation.
+> [!IB Style Question] Question 2
+> A hospital wants to build a system that detects tumours in X-ray images. It has only a small set of labelled X-ray scans.
+>
+> Explain why transfer learning would be a suitable approach in this situation. **[4]**
 
 What happens:
 - Reuses a model pre-trained on another task (1)
@@ -16,8 +19,10 @@ Why:
 - The pre-trained model has already learned general visual features such as edges, shapes and textures, carrying those over to X-rays (1)
 - It therefore needs much less labeled data, decreasing training time and cost, while less likely overfitting (1)
 
-**Question 3** _(4 marks)_  
-A smartphone maker wants to add face-unlock to its phones. **Compare and contrast** running the face-recognition model on an edge device (the phone) with running it on a cloud-based platform.
+> [!IB Style Question] Question 3
+> A smartphone maker wants to add face-unlock to its phones.
+>
+> Compare and contrast running the face-recognition model on an edge device (the phone) with running it on a cloud-based platform. **[4]**
 
 Disadvantages:
 - Edge works offline and doesn't depend on a server
