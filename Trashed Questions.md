@@ -13,4 +13,4 @@ a) From the flowchart, pseudocode is to be created that will include sub-program
 	```
 	ii) Construct a similar sub-program to the one in part i) to calculate and return the area of the shape. You must use an appropriate name for the sub-program and appropriate names for the parameters. \[4\]
 	iii) Construct pseudocode based on the flowchart  to collect input from the user, call the sub-programs created in parts (i) and (ii), and output the results. \[5\]
-b) Without using pseudocode, explain how your algorithms could be altered to **also** find the area and circumference of a circle. \[\4]
+b) Without using pseudocode, explain how your algorithms could be altered to **also** find the area and circumference of a circle. \[4\]
