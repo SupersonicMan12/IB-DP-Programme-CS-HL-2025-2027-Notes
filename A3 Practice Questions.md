@@ -191,7 +191,10 @@ d) VARCHAR cannot be logically correctly added with a numeric type, which can ca
 >
 > **(d)** Explain how well-defined tables, using primary key and foreign key constraints, help to ensure data integrity in this database. **[3]**
 
-
+a) MinutesPlayed and Goals depend on both PlayerID and MatchID. A primary key must be able to uniquely determine a record: yet the same player can be in multiple records and the same match can be in multiple records
+b) Foreign keys are PlayerID and MatchID: referencing Player(PlayerID) and MatchID(Match)
+c) Because the same player can be referenced multiple times, there would be data redundant. The table is also not maximally modular: attributes in the new table depend directly on only part of the primary key
+d) Well-defined tables have that each foreign key validly references another table's entry, and that each primary key uniquely identifies a record. DBMS rejects invalid data: an appearance row without a player should indeed not be allowed.
 
 > [!IB Style Question] Question 9 — A3.2.5 Normal forms
 > A school stores examination results in the following table, which is in first normal form (1NF). The primary key is the composite key (StudentID, SubjectCode).
@@ -210,7 +213,11 @@ d) VARCHAR cannot be logically correctly added with a numeric type, which can ca
 >
 > **(e)** Explain why a table that is in 1NF and has a single-attribute primary key is automatically in second normal form (2NF). **[2]**
 
-
+a) atomicity means that each entry has only one value
+b) StudentName only depends on StudentID, not on the composite key of SubjectCode. So it depends partially
+c) Teacher Room depends on Subject Teacher, which depends on the combination of StudentID and SubjectCode. So it depends transitively.
+d) It must satisfy the three properties of atomicity, no partial dependency and no transitive dependency
+e) When only single-attribute primary keys exist, partial dependency cannot exist because no composite keys exist, that is, no attribute can only depend on one of the multiple parts.
 
 > [!IB Style Question] Question 10 — A3.2.6 Normalizing to 3NF
 > A music school keeps all of its enrolment data in one unnormalized table. Each course is taught by exactly one tutor, and a tutor may teach several courses. EnrolDate is the date a student enrolled on a particular course.
@@ -229,10 +236,34 @@ d) VARCHAR cannot be logically correctly added with a numeric type, which can ca
 >
 > **(d)** Explain why EnrolDate must be stored in the same table as the composite key. **[2]**
 
+a) No atomicity: e.g. 1001 CourseCode has two entries, 1001 CourseName has two entries.
+b) (StudentID, CourseCode)
+c) 
 
+Student:
+StudentID (PK)
+StudentName
 
-> [!IB Style Question] Question 11 — A3.2.5 Normalization issues and anomalies
-> A hospital stores ward allocations in a single table:
+Course:
+CourseCode (PK)
+CourseName 
+Fee
+Tutor (FK)
+
+Selection:
+CourseCode (FK, PK composite)
+StudentID (FK, PK composite)
+EnrolDate
+
+Tutor:
+TutorID (PK)
+Name
+Email
+
+d) The Enrolment Date depends on both StudentID and CourseCode. Student 1001 enrolled on PIA1 on 01-10 and GTR2 01-12
+
+> [!IB Style Question] Question 11 — A3.2.5 Normalization issues
+> A hospital stores ward allocations in a single table. The primary key is PatientID.
 >
 > | PatientID | PatientName | WardCode | WardName    | Floor | NurseInCharge |
 > | --------- | ----------- | -------- | ----------- | ----- | ------------- |
@@ -241,15 +272,18 @@ d) VARCHAR cannot be logically correctly added with a numeric type, which can ca
 > | P03       | Omar Haddad | W1       | Cardiology  | 3     | N. Adeyemi    |
 > | P04       | Lina Cruz   | W3       | Paediatrics | 2     | B. Moreau     |
 >
-> **(a)** With reference to the data above, describe:
+> **(a)** Identify **one** transitive dependency in this table, and outline why it is a transitive dependency. **[2]**
 >
-> - (i) an insertion anomaly **[2]**
-> - (ii) a deletion anomaly **[2]**
-> - (iii) an update anomaly **[2]**
+> **(b)** With reference to the data above, explain how this table leads to data duplication. **[2]**
 >
-> **(b)** Outline how normalizing this table to 3NF would prevent these anomalies. **[2]**
+> **(c)** With reference to the data above, explain how this table can lead to missing data. **[2]**
+>
+> **(d)** Outline how normalizing this table to 3NF would resolve these issues. **[2]**
 
-
+a) Floor depends on WardName, which depends on PatientID. This is transitive dependency
+b) Information about the same ward is repeated across records: W1 Cardiology Floor 3 Nurse N Adeyemi is repeated twice.
+c) A ward can't be recorded without a patient. Ward details are lost when the last patient leaves.
+d) Ward(WardCode PK, WardName, Floor, NurseInCharge) Patient(PatientID PK, PatientName, WardCode FK). Each ward's detail is stored once, is independent of patients and the transitive dependence is removed.
 
 > [!IB Style Question] Question 12 — A3.2.7 Denormalization
 > A news website stores its articles, authors and categories in a database normalized to 3NF. Every time an article page is displayed, the database joins the Article, Author and Category tables. The website receives around 50 million page views per day, but articles are rarely edited after publication.
@@ -258,8 +292,15 @@ d) VARCHAR cannot be logically correctly added with a numeric type, which can ca
 >
 > **(b)** Evaluate the decision to denormalize the news website's database. **[6]**
 
-
-
+a) Denormalization means deliberately adding redundant data or merging tables, to reduce joins and speed up reads.
+b) 
+Advantage: 
+- Read performance increases, as no more joins are necessary. This is important as there are 50M views per day (2)
+- Queries can be simpler. (1)
+Disadvantage:
+- Updating an article may require updating multiple parts of the denormalized table, time consuming (1)
+- Increased storage use: the table becomes larger, mapping all posisble searches with lots of redundancy (1)
+Evaluation: Articles are rarely edited, so the inconsistency risk is low and can be handled with checks. The read gain far outweighs the cost, so denormalizing is justified (1)
 ## A3.3
 
 > [!IB Style Question] Question 13 — A3.3.1 Data language types
@@ -463,7 +504,7 @@ d) Isolation means that concurrent transactions do not see each other's half-fin
 
 ## My Grading Report
 
-**Total: 103/138 (75%)**, first attempts only, Q8–12 not attempted
+**Total: 133/183 (73%)**, first attempts only, all 20 questions attempted
 
 | Q   | Topic                         | Score |
 | --- | ----------------------------- | ----- |
@@ -474,11 +515,11 @@ d) Isolation means that concurrent transactions do not see each other's half-fin
 | 5   | A3.2.1 Schemas                | 5/7   |
 | 6   | A3.2.2 ERDs                   | 6/9   |
 | 7   | A3.2.3 Data types             | 10/11 |
-| 8   | A3.2.4 Tables and keys        | **SKIPPED** [9] |
-| 9   | A3.2.5 Normal forms           | **SKIPPED** [9] |
-| 10  | A3.2.6 Normalizing to 3NF     | **SKIPPED** [11] |
-| 11  | A3.2.5 Anomalies              | **SKIPPED** [8] |
-| 12  | A3.2.7 Denormalization        | **SKIPPED** [8] |
+| 8   | A3.2.4 Tables and keys        | 7/9   |
+| 9   | A3.2.5 Normal forms           | 8/9   |
+| 10  | A3.2.6 Normalizing to 3NF     | 7/11  |
+| 11  | A3.2.5 Normalization issues   | 5/8   |
+| 12  | A3.2.7 Denormalization        | 3/8   |
 | 13  | A3.3.1 DDL / DML              | 8/11  |
 | 14  | A3.3.2 Constructing queries   | 7/10  |
 | 15  | A3.3.2 Query output / errors  | 6/8   |
@@ -492,20 +533,29 @@ d) Isolation means that concurrent transactions do not see each other's half-fin
 | ----------------------------- | ----- | --- |
 | A3.1 (Q1–4)                   | 22/31 | 71% |
 | A3.2.1–3 (Q5–7)               | 21/27 | 78% |
-| A3.2.4–7 (Q8–12)              | **SKIPPED** (45 marks) | — |
+| A3.2.4–7 (Q8–12)              | 30/45 | 67% |
 | A3.3 SQL and updates (Q13–17) | 33/45 | 73% |
 | A3.3 HL (Q18–20)              | 27/35 | 77% |
 
 **Recurring mistakes**
-1. **Not using the scenario trigger** (Q2d, Q4b, Q5d, Q14b, Q17b, Q20c, Q20d): definitions correct, application mark lost. Ask "why is this sentence in the stem?"
+1. **Not using the scenario trigger** (Q2d, Q4b, Q5d, Q12b, Q14b, Q17b, Q20c, Q20d): definitions correct, application mark lost. Ask "why is this sentence in the stem?"
 2. **SQL precision** (~6 marks): quote strings/dates in `'single quotes'`, use the alias everywhere once set (`f.FilmID`, not `Film.FilmID`), don't drop `SELECT`, no `SHORT` type.
 3. **Concept gaps**: modality (min, NOT NULL) vs cardinality (max, 1:N); a view is a **saved query**, not a copy, unless materialized.
+4. **6-mark discuss / evaluate** (Q4b 3/6, Q12b 2/6): lowest-scoring question type. Structure: for (2, scenario-linked) → against (2, scenario-linked) → weigh against scenario → justified conclusion.
 
 **Other lost marks**
 - Vague definitions (Q4a impedance mismatch)
-- One-sided 6-mark discuss (Q4b): needs for + against + conclusion
 - Query tracing: apply DISTINCT, read values from the table (Q15a)
 - Write all selected columns in traced output (Q18a)
+- 3NF construction (Q10c): attributes placed in the wrong table / dropped. Use the "depends on what?" test, then tick off every original column
+- Normalization issues (Q11c–d): missing data = facts about one entity only exist inside another's rows (ward lost when last patient leaves). Test: would 3NF fix it?
+- Denormalization (Q12): purpose = fewer joins → faster reads; ALWAYS say read-intensive. "Evaluate" = weigh each point against the scenario (50M views, rarely edited), then a justified conclusion. Misread "views" as "edits"
 
-**To do:** Q8–12 (A3.2.4–A3.2.7: keys, normal forms, 3NF construction, anomalies, denormalization)
+**Strongest:** data types (Q7 10/11), normal-form theory (Q9 8/9), aggregates (Q18 10/11)
+**Weakest:** A3.2.4–7 application (67%): theory is solid, marks lost applying it to a specific table/scenario
+
+**Next steps**
+1. Practise A3.2.6 normalization on the other scenarios in A3.2 notes (library, hospital, inventory…), using the "depends on what?" test
+2. Before every answer, underline the numbers / specific phrases in the stem and make sure each appears in the answer
+3. Write one timed 6-mark discuss/evaluate answer per week using the for → against → weigh → conclude structure
 
